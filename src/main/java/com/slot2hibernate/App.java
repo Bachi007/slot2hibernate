@@ -18,34 +18,67 @@ public class App
     public static void main( String[] args )
     {
     	
-    	Configuration conf=new Configuration().configure().addAnnotatedClass(employee.class);
+    	Configuration conf=new Configuration().configure().addAnnotatedClass(teamindia.class).addAnnotatedClass(batsman.class).addAnnotatedClass(bowler.class);
     	
     	SessionFactory sf=conf.buildSessionFactory();
     	Session ses=sf.openSession();
     	
     	Transaction tc=ses.beginTransaction();
-    	//add employee
-//    	employee e1=new employee();
-//    	e1.setEmpId(101);
-//    	e1.setEmpName("bachi");
-//    	e1.setEmpDomain("Full Stack");
-//    	e1.setEmpCity("vizag");
-//    	e1.setEmpSalary(52000);
-//    	ses.save(e1);
-    	//retrive one column
-//    	employee e1=null;
-//    	
-//    	e1=(employee)ses.get(employee.class,101);
-//    	
-//    	System.out.println(e1);
-    	//printing all the employees
-    	Query qu=ses.createQuery("from employee");
-    	List<employee> ll=qu.getResultList();
     	
-    	System.out.println("Id\tName\tCity\tsalary");
+    	batsman bat1=new batsman();
+    	bat1.setPlayerId(7);
+    	bat1.setFirstName("M S");
+    	bat1.setLastName("Dhoni");
+    	bat1.setBattingHand("Right");
+    	bat1.setHighestScore(183);
     	
-    	for(employee e:ll)
-    	System.out.println(e.getEmpId()+"\t"+e.getEmpName()+"\t"+e.getEmpCity()+"\t"+e.getEmpSalary());
+    	batsman bat2=new batsman();
+    	bat2.setPlayerId(18);
+    	bat2.setFirstName("Virat");
+    	bat2.setLastName("Kohli");
+    	bat2.setBattingHand("Right");
+    	bat2.setHighestScore(183);
+    
+    	batsman bat3=new batsman();
+    	bat3.setPlayerId(77);
+    	bat3.setFirstName("Rohit");
+    	bat3.setLastName("Sharma");
+    	bat3.setBattingHand("Right");
+    	bat3.setHighestScore(264);
+    	
+    	bowler b1=new bowler();
+    	b1.setPlayerId(34);
+    	b1.setFirstName("Zaheer");
+    	b1.setLastName("Khan");
+    	b1.setBowlingHand("Left");
+    	b1.setBestFigures("8/25");
+    	
+    	bowler b2=new bowler();
+    	b2.setPlayerId(64);
+    	b2.setFirstName("Asish");
+    	b2.setLastName("Bumrah");
+    	b2.setBowlingHand("Left");
+    	b2.setBestFigures("7/21");
+    	
+    	bowler b3=new bowler();
+    	b3.setPlayerId(10);
+    	b3.setFirstName("Jasprit");
+    	b3.setLastName("Bumrah");
+    	b3.setBowlingHand("Right");
+    	b3.setBestFigures("6/25");
+    	
+    	teamindia t1=new teamindia();
+    	t1.setFirstName("bachi");
+    	t1.setLastName("Ch");
+    	t1.setPlayerId(25);
+    	
+    	ses.save(t1);
+    	ses.save(b3);
+    	ses.save(b2);
+    	ses.save(b1);
+    	ses.save(bat3);
+    	ses.save(bat2);
+    	ses.save(bat1);
     	
     	
     	tc.commit();
