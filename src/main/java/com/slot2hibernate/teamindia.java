@@ -1,5 +1,5 @@
 package com.slot2hibernate;
-
+//inheritance
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;

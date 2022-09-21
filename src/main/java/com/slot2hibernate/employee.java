@@ -1,44 +1,47 @@
 package com.slot2hibernate;
-
+//manytoone
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
-@Entity(name="emptable")
+@Entity
 public class employee {
 
 	@Id
-	
-	@Column(name="rollNo")
-	private int empId;
-	private nameofemployee empName;
-	@Transient
-	private String empDomain;
-	
-	public int getEmpId() {
-		return empId;
+	private int eId;
+	private String eName;
+	private String eDomain;
+	@ManyToOne
+	private address eaddress;
+	public int geteId() {
+		return eId;
 	}
-	public void setEmpId(int empId) {
-		this.empId = empId;
+	public void seteId(int eId) {
+		this.eId = eId;
 	}
-	
-	public nameofemployee getEmpName() {
-		return empName;
+	public String geteName() {
+		return eName;
 	}
-	public void setEmpName(nameofemployee empName) {
-		this.empName = empName;
+	public void seteName(String eName) {
+		this.eName = eName;
 	}
-	public String getEmpDomain() {
-		return empDomain;
+	public String geteDomain() {
+		return eDomain;
 	}
-	public void setEmpDomain(String empDomain) {
-		this.empDomain = empDomain;
+	public void seteDomain(String eDomain) {
+		this.eDomain = eDomain;
+	}
+	public address getEaddress() {
+		return eaddress;
+	}
+	public void setEaddress(address eaddress) {
+		this.eaddress = eaddress;
 	}
 	@Override
 	public String toString() {
-		return "employee [empId=" + empId + ", empName=" + empName + ", empDomain=" + empDomain + "]";
+		return "employee [eId=" + eId + ", eName=" + eName + ", eDomain=" + eDomain + ", eaddress=" + eaddress + "]";
 	}
-	
 	
 }
