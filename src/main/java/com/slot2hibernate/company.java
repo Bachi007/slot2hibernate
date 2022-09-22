@@ -46,7 +46,7 @@ public class company {
 		List<employee> el=qu.getResultList();
 		
 		for(employee e:el)
-		System.out.println(e.geteName()+" "+e.geteDomain()+e.getEaddress().getAdCity());
+		//System.out.println(e.geteName()+" "+e.geteDomain());
 		
 		ses.getTransaction().commit();;
 		
